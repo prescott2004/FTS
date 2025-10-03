@@ -106,17 +106,17 @@ function keyPressed() {
         case '1': case '2': case '3': case '4': case '5': case '6':
             funcType = int(key);
             recomputeFt();
+            resetTransform();
             break;
     }
     return false; // prevent default
 }
 
-function recomputeFt() {
+function recomputeFt(funcType) {
     // f(t)の再計算(関数タイプ変更時)
     for (let i = 0; i < N_SAMPLES; i++) {
-        ft[i] = f_of_t(ts[i]);
+        ft[i] = f_of_t(ts[i], funcType);
     }
-    resetTransform();
 }
 
 function resetTransform() {
